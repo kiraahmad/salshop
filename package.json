@@ -1,0 +1,14 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "MERN Ecommerce",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "author": "Salama Balah",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
