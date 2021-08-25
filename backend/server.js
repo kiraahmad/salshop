@@ -1,5 +1,6 @@
 const express = require('express')
 const dotenv = require('dotenv')
+const {notFound, errorHandler} = require('./middleware/errorMiddleware')
 const connectDB = require('./config/db')
 
 const productRoutes = require('./routes/productRoutes')
@@ -16,6 +17,9 @@ app.get('/', (req, res) => {
 
 //anything that goes to this route '/api/products' will be redirected to the file productRoutes
 app.use('/api/products', productRoutes)
+app.use(notFound)
+app.use(errorHandler)
+ 
 
 const PORT = process.env.PORT || 5000
 
