@@ -1,7 +1,8 @@
 const express = require('express')
 const dotenv = require('dotenv')
 const connectDB = require('./config/db')
-const products = require('./data/products')
+
+const productRoutes = require('./routes/productRoutes')
 
 dotenv.config()
 
@@ -13,14 +14,8 @@ app.get('/', (req, res) => {
     res.send('API is running...')
 })
 
-app.get('/api/products', (req, res) => {
-    res.json(products)
-})
-
-app.get('/api/product/:id', (req, res) => {
-    const product = products.find((product) => product._id === req.params.id)
-    res.json(product)
-})
+//anything that goes to this route '/api/products' will be redirected to the file productRoutes
+app.use('/api/products', productRoutes)
 
 const PORT = process.env.PORT || 5000
 
