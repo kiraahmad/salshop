@@ -1,6 +1,7 @@
 const asyncHandler = require('express-async-handler')
 const Product = require('../models/productModel')
 
+//asyncHandler is a replacement for tryCatch
 const getProducts = asyncHandler( async (req, res) => {
     const products = await Product.find({})
 

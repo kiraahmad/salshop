@@ -3,7 +3,6 @@ const { getProductById, getProducts } = require('../controllers/productControlle
 
 const router = express.Router()
 
-//asyncHandler is a replacement for tryCatch
 router.route('/').get(getProducts)
 
 

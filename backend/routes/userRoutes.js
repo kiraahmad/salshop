@@ -1,10 +1,13 @@
 const express = require('express')
-const authUser = require('../controllers/userController')
+const { authUser, registerUser, getUserProfile } = require('../controllers/userController')
+const { protect } = require('../middleware/authMiddleware')
 
 const router = express.Router()
 
 //asyncHandler is a replacement for tryCatch
+router.route('/').post(registerUser)
 router.post('/login', authUser)
+router.route('/profile').get(protect, getUserProfile)
 
 
 module.exports = router
